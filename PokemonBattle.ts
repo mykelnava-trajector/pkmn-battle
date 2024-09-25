@@ -58,7 +58,8 @@ app.get(`/storeyourpokemon`, async(req,res) =>{
     let ypokemon = req.query.ypokemon
     try {
         await yourPoke(ypokemon);
-        res.json({YourPokemonRegistered:Pokestats1})
+        res.json({YourPokemonRegistered:Pokestats1, Proceed:{Do:"Proceed to Enemy Pokemon pick", 
+        EnemyPokemonURL:"http://localhost:3000/storeenemypokemon?epokemon=(PokemonName)"}})
     } catch (error) {
         res.status(400).send(`Error: ${error.message}. Please try again.`);
     }
@@ -68,7 +69,7 @@ app.get(`/storeenemypokemon`, async(req,res) => {
     let epokemon = req.query.epokemon
     try{
         await enemyPoke(epokemon);
-        res.json({EnemyPokemonRegistered:Pokestats2})
+        res.json({EnemyPokemonRegistered:Pokestats2, Proceed:{Do:"Proceed to Battle.", BattleURL:" http://localhost:3000/pokemonbattle"} })
     } catch (error) {
         res.status(400).send(`Error: ${error.message}. Please try again.`);
     }
