@@ -59,7 +59,7 @@ app.get(`/storeyourpokemon`, async(req,res) =>{
     try {
         await yourPoke(ypokemon);
         res.json({YourPokemonRegistered:Pokestats1, Proceed:{Do:"Proceed to Enemy Pokemon pick", 
-        EnemyPokemonURL:"http://localhost:3000/storeenemypokemon?epokemon=(PokemonName)"}})
+        EnemyPokemonURL:"http://localhost:3000/storeenemypokemon?epokemon=(ReplaceWithAPokemonName)"}})
     } catch (error) {
         res.status(400).send(`Error: ${error.message}. Please try again.`);
     }
